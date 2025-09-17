@@ -11,4 +11,4 @@ this is a change i want to push to main branch directly
 i am trying to cause a push conflict
 
 
-making a change
+this change was made when dev is still working on feature A on his branch 
