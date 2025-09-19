@@ -1,14 +1,6 @@
-import mysql.connector as mysql
+import connectDB 
 
-DB = mysql.connect(
-    host="localhost",
-    user="root",
-    password="1234",
-    database="test"
-)
-
-cursor = DB.cursor()
-
+DB, cursor = connectDB.connectDB()
 
 def init_db():
 
