@@ -28,9 +28,11 @@ while running:
         view_posts()
         print("="*50)
     elif choice == 5:
-        
+        print("="*50)
+        print("Feature coming soon!")
+        print("="*50)
     elif choice == 6:
         running = False
         print("Exiting the application. Goodbye!")
     else:
-        print("Invalid choice. Please enter a number between 1 and 5.")
+        print("Invalid choice. Please enter a number between 1 and 6.")
