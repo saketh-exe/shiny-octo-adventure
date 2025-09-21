@@ -1,7 +1,4 @@
-from postManager import create_post, view_posts
-import connectDB 
-DB , cursor = connectDB.connectDB()
-
+from postManager import create_post, view_posts, comment_on_post , reply
 
 running  = True
 
@@ -18,9 +15,13 @@ while running:
         create_post()
         print()
     elif choice == 2:
-        continue
+        print()
+        comment_on_post()
+        print()
     elif choice == 3:
-        continue
+        print()
+        reply()
+        print()
     elif choice == 4:
         print("---------------------------------------------------")
         view_posts()
