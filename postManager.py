@@ -94,3 +94,15 @@ def reply():
         )
         DB.commit()
         print("Reply added successfully.")
+
+def edit_post():
+    cursor.execute("select id,title,author_name from POSTS")
+    posts = cursor.fetchall()
+    print("Select the post you want to edit:")
+    for post in posts:
+        print(f"ID: {post[0]}, Title: {post[1]}, Author: {post[2]}") #type: ignore
+    selected_post_id = int(input("Enter the ID of the post you want to edit: "))
+    new_content = input("Enter the new content for the post: \n")
+    cursor.execute("UPDATE POSTS SET content=%s WHERE id=%s",(new_content,selected_post_id))
+    DB.commit()
+    print("Post content updated successfully.")

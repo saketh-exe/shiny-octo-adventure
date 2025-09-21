@@ -1,4 +1,4 @@
-from postManager import create_post, view_posts, comment_on_post , reply
+from postManager import create_post, view_posts, comment_on_post , reply , edit_post
 
 running  = True
 
@@ -29,7 +29,7 @@ while running:
         print("="*50)
     elif choice == 5:
         print("="*50)
-        print("Feature coming soon!")
+        edit_post()
         print("="*50)
     elif choice == 6:
         running = False
