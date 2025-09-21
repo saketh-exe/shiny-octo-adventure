@@ -8,8 +8,9 @@ while running:
     print("2. Comment on a post")
     print("3. Reply to a comment")
     print("4. View all posts with comments")
-    print("5. Exit")
-    choice = int(input("Enter your choice (1-5): "))
+    print("5. Edit a post content")
+    print("6. Exit")
+    choice = int(input("Enter your choice (1-6): "))
     if choice == 1:
         print()
         create_post()
@@ -27,6 +28,8 @@ while running:
         view_posts()
         print("---------------------------------------------------")
     elif choice == 5:
+        
+    elif choice == 6:
         running = False
         print("Exiting the application. Goodbye!")
     else:

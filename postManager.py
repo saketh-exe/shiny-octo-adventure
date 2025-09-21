@@ -1,17 +1,16 @@
 import connectDB 
 DB , cursor = connectDB.connectDB()
-
+from hashTagEngine import get_tags_from_content
 def create_post():
     title  = input("Enter title of the post: ")
     content = input("Enter content of the post: ")
     author_name = input("Enter author name: ")
-
+    get_tags_from_content(content)
 
     cursor.execute(f"""
         insert into POSTS (title,content,author_name) values
                 ("{title}","{content}","{author_name}")
-    """
-    )
+    """)
 
     DB.commit()
     print("Posted successfully")

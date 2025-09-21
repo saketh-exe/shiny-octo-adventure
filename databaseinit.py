@@ -33,6 +33,15 @@ def init_db():
         )
         """
     )
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS TAGS (
+        tag_name VARCHAR(100) NOT NULL PRIMARY KEY,
+        usage_count INT NOT NULL DEFAULT 1
+        )
+
+"""
+    )
     
     print("Database tables created successfully!")
     DB.commit()
