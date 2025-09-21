@@ -11,21 +11,21 @@ while running:
     print("5. Exit")
     choice = int(input("Enter your choice (1-5): "))
     if choice == 1:
-        print()
+        print("="*50)
         create_post()
-        print()
+        print("="*50)
     elif choice == 2:
-        print()
+        print("="*50)
         comment_on_post()
-        print()
+        print("="*50)
     elif choice == 3:
-        print()
+        print("="*50)
         reply()
-        print()
+        print("="*50)
     elif choice == 4:
-        print("---------------------------------------------------")
+        print("="*50)
         view_posts()
-        print("---------------------------------------------------")
+        print("="*50)
     elif choice == 5:
         running = False
         print("Exiting the application. Goodbye!")
