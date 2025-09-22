@@ -1,5 +1,6 @@
 from hashTagEngine import get_top_k_tags, suggest_related_tags, populate_tags
-
+from commentTools import analyze_post_comments
+import json
 running = True
 
 while running:
@@ -7,9 +8,10 @@ while running:
     print("1. Show top hashtags")
     print("2. Get related tag suggestions")
     print("3. Populate tags from existing posts")
-    print("4. Exit")
-    choice = int(input("Enter your choice (1-4): "))
-    
+    print("4. Get Comment insights")
+    print("5. Exit")
+    choice = int(input("Enter your choice (1-5): "))
+
     if choice == 1:
         print("="*50)
         k = int(input("How many top hashtags to show? "))
@@ -34,8 +36,12 @@ while running:
         populate_tags()
         print("Tags populated from existing posts!")
         print("="*50)
-        
     elif choice == 4:
+        post_id = int(input("Enter the post ID to analyze comments: "))
+        print("="*50)
+        print(json.dumps(analyze_post_comments(post_id), indent=4))
+        print("="*50)
+    elif choice == 5:
         running = False
         print("Exiting the dashboard. Goodbye!")
         
