@@ -58,7 +58,7 @@ def display_comment_replies(comment_id, level=0): # Recursive
     cursor.execute(f"select * from COMMENTS where parent_id={comment_id}")
     replies = cursor.fetchall()
     for reply in replies:
-        print(f"{'  ' * level}Reply ID: {reply[0]}, Content: {reply[3]}, Author: {reply[4]}") #type: ignore
+        print(f"{'  ' * level}↳Reply ID: {reply[0]}, Content: {reply[3]}, Author: {reply[4]}") #type: ignore
         display_comment_replies(reply[0], level + 1) #type: ignore
 
 def reply():
