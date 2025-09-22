@@ -33,6 +33,28 @@ def init_db():
         )
         """
     )
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS TAGS (
+        tag_name VARCHAR(100) NOT NULL PRIMARY KEY,
+        usage_count INT NOT NULL DEFAULT 1
+        )
+
+"""
+    )
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS TAGS_CO_OCCURRENCE (
+        tag_name VARCHAR(100) NOT NULL,
+        co_occurring_tag_name VARCHAR(100) NOT NULL,
+        occurrence_count INT NOT NULL DEFAULT 1,
+        PRIMARY KEY (tag_name, co_occurring_tag_name),
+        FOREIGN KEY (tag_name) REFERENCES TAGS(tag_name) ON DELETE CASCADE,
+        FOREIGN KEY (co_occurring_tag_name) REFERENCES TAGS(tag_name) ON DELETE CASCADE
+        )
+
+"""
+    )
     
     print("Database tables created successfully!")
     DB.commit()

@@ -41,9 +41,6 @@ while running:
         print("="*50)
         print(json.dumps(analyze_post_comments(post_id), indent=4))
         print("="*50)
-
-
-
     elif choice == 5:
         running = False
         print("Exiting the dashboard. Goodbye!")
