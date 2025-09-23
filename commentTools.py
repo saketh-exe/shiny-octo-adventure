@@ -4,10 +4,6 @@ DB, cursor = connectDB.connectDB()
 
 
 def fetch_comments(post_id: int):
-    """
-    Fetch all comments for a given post_id.
-    Returns a list of dicts with id, parent_id, content, author.
-    """
     cursor.execute(
         "SELECT id, parent_id, content, author_name FROM COMMENTS WHERE post_id = %s",
         (post_id,),
@@ -20,9 +16,6 @@ def fetch_comments(post_id: int):
 
 
 def build_comment_tree(comments, parent_id=None):
-    """
-    Recursively build a nested comment tree.
-    """
     tree = []
     for c in comments:
         if c["parent_id"] == parent_id:
@@ -32,18 +25,12 @@ def build_comment_tree(comments, parent_id=None):
 
 
 def calculate_depth(comment):
-    """
-    Calculate the engagement depth (longest chain of replies) for a comment.
-    """
     if not comment.get("children"):
         return 1
     return 1 + max(calculate_depth(child) for child in comment["children"])
 
 
 def count_total_replies(comment):
-    """
-    Count total number of replies (including nested) for a comment.
-    """
     if not comment.get("children"):
         return 0
     return len(comment["children"]) + sum(
@@ -52,9 +39,6 @@ def count_total_replies(comment):
 
 
 def find_viral_chain(comment, path=None):
-    """
-    Find the longest reply chain (viral chain) using recursive backtracking.
-    """
     if path is None:
         path = []
     path = path + [comment["id"]]
